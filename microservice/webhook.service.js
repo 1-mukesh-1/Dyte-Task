@@ -85,7 +85,7 @@ module.exports = {
             cache: true,
             rest: "GET /",
             handler(ctx) {
-                return this.rows;
+                return JSON.stringify(this.rows);
             }
         },
 
@@ -98,7 +98,7 @@ module.exports = {
             handler(ctx) {
                 const post = this.findByID(ctx.params.id);
                 if (post)
-                    return post;
+                    return JSON.stringify(post);
 
                 return Promise.reject(new MoleculerError("Post not found!", 404));
             }
@@ -106,13 +106,18 @@ module.exports = {
 
         create: {
             rest: "POST /",
-            handler(ctx) {                
+            handler(ctx) {
+                console.log(ctx.params);
                 var randint=this.rows[this.rows.length - 1].id+1;
+                var tempo=new Object();
+                tempo.id=randint;
+                tempo.targetUrl=ctx.params.targetUrl;
+                this.rows.push(tempo);
                 insertData(randint,ctx.params.targetUrl);
                 this.clearCache();
                 var temp =new Object();
                 temp.id=randint;
-                return temp;
+                return JSON.stringify(temp);
             }
         },
 
@@ -127,7 +132,7 @@ module.exports = {
                     this.clearCache();
                     var temp=new Object;
                     temp.status="Success";
-                    return temp;
+                    return JSON.stringify(temp);
                 }
                 return Promise.reject(new MoleculerError("Post not found!", 404));
             }
@@ -142,7 +147,7 @@ module.exports = {
                 console.log(status);
                 var temp=new Object;
                 temp.status="Success";
-                return temp;
+                return JSON.stringify(temp);
             }
         }
     },

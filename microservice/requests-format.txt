@@ -1,18 +1,18 @@
 list;
 GET
-http://localhost:3000/webhooks
+http://localhost:3000/api/webhooks
 
 
 
 get:
 GET
-http://localhost:3000/webhooks/:id
+http://localhost:3000/api/webhooks/:id
 
 
 
 Register:
 POST
-http://localhost:3000/webhooks
+http://localhost:3000/api/webhooks
 {
     "targetUrl" : "www.mukeshcheemakurthi.tech"
 }
@@ -21,7 +21,7 @@ http://localhost:3000/webhooks
 
 Update:
 PUT
-http://localhost:3000/webhooks/:id
+http://localhost:3000/api/webhooks/:id
 {
     "targetUrl" : "www.mukeshcheemakurthi.tech"
 }
@@ -29,4 +29,4 @@ http://localhost:3000/webhooks/:id
 
 Delete:
 DELETE
-http://localhost:3000/webhooks/:id
+http://localhost:3000/api/webhooks/:id
