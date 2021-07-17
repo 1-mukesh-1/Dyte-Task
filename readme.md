@@ -20,7 +20,7 @@ Step - 4 : Use postman api and send different types of requests to backend and i
 	Note: Different types of requests with raw body and url are attached @test.txt and it can be used to test in postman. (Postman desktop agent is requied for testing)
 
 ## Architecture Of the project
-![Screenshot](main.png)
+![Screenshot](main.PNG)
 
 ## Requests & Routes
 
