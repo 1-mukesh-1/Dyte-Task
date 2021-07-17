@@ -27,28 +27,38 @@ Step - 4 : Use postman api and send different types of requests to backend and i
     /all rows
     GET
     http://localhost:5000/api/webhooks
+    
     -------------------------------------------------------------------
+    
     /:id
     GET
     http://localhost:5000/api/webhooks/1
+    
     -------------------------------------------------------------------
+    
     POST
     http://localhost:5000/api/webhooks
     request body:
     {
         "targetUrl" : "www.temp.com"
     }
+    
     -------------------------------------------------------------------
+    
     PUT
     http://localhost:5000/api/webhooks/2
     request body:
     {
         "targetUrl" : "www.temp.com"
     }
+    
     -------------------------------------------------------------------
+    
     DELETE
     http://localhost:5000/api/webhooks/4
+    
     -------------------------------------------------------------------
+    
     IP
     http://localhost:5000/ip
 
