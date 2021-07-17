@@ -104,20 +104,15 @@ module.exports = {
             }
         },
 
-        feed: {
-            rest: "GET /feed",
-            handler(ctx) {
-                return this.rows;
-            }
-        },
-
         create: {
             rest: "POST /",
             handler(ctx) {                
-                this.rows.push(ctx.params);
-                insertData(ctx.params.id,ctx.params.targetUrl);
+                var randint=this.rows[this.rows.length - 1].id+1;
+                insertData(randint,ctx.params.targetUrl);
                 this.clearCache();
-                return this.rows[this.rows.length - 1].id;
+                var temp =new Object();
+                temp.id=randint;
+                return temp;
             }
         },
 
@@ -130,7 +125,9 @@ module.exports = {
                         post.targetUrl = ctx.params.targetUrl;
                     updateData(ctx.params.id,ctx.params.targetUrl);
                     this.clearCache();
-                    return "success";
+                    var temp=new Object;
+                    temp.status="Success";
+                    return temp;
                 }
                 return Promise.reject(new MoleculerError("Post not found!", 404));
             }
@@ -143,8 +140,9 @@ module.exports = {
                 var status=deleteData(ctx.params.id);
                 this.clearCache();
                 console.log(status);
-                if(status) return "deleted successfully";
-                return "Failed to delete/ record not found";
+                var temp=new Object;
+                temp.status="Success";
+                return temp;
             }
         }
     },

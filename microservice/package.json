@@ -8,6 +8,7 @@
     "moleculer": "^0.14.15",
     "moleculer-web": "^0.9.1",
     "mysql": "^2.18.1",
-    "nats": "^1.4.12"
+    "nats": "^1.4.12",
+    "nodemon": "^2.0.12"
   }
 }
