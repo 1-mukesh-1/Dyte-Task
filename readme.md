@@ -25,18 +25,18 @@ Step - 4 : Use postman api and send different types of requests to backend and i
 ## Requests & Routes
 
     /all rows
-    GET
+    LIST
     http://localhost:5000/api/webhooks
     
     -------------------------------------------------------------------
     
     /:id
-    GET
+    LIST
     http://localhost:5000/api/webhooks/1
     
     -------------------------------------------------------------------
     
-    POST
+    CREATE
     http://localhost:5000/api/webhooks
     request body:
     {
@@ -45,7 +45,7 @@ Step - 4 : Use postman api and send different types of requests to backend and i
     
     -------------------------------------------------------------------
     
-    PUT
+    UPDATE
     http://localhost:5000/api/webhooks/2
     request body:
     {
