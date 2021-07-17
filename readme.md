@@ -13,10 +13,10 @@ This consists of single table called as webhook_data and its stores targetUrl og
 
 ## How to run
 Three batch scripts are created which will help to automate the task. No additional modules are required except NodeJS global env. 
-Step -1 : Database is attached in the git repo in ./Database/webhooks.sql. so it has to be imported into phpmyadmin. (Xampp is preferred)
-Step - 2 : Double click on automate.py and it will start both backend and microservice
-Step - 3 : backend running @ localhost:5000 and microservice running @ localhost:3000
-Step - 4 : Use postman api and send different types of requests to backend and it will activate microservice automatically and microservice actions will edit the database. 
+1. Database is attached in the git repo in ./Database/webhooks.sql. so it has to be imported into phpmyadmin. (Xampp is preferred)
+2. Double click on automate.py and it will start both backend and microservice
+3. backend running @ localhost:5000 and microservice running @ localhost:3000
+4. Use postman api and send different types of requests to backend and it will activate microservice automatically and microservice actions will edit the database. 
 	Note: Different types of requests with raw body and url are attached @test.txt and it can be used to test in postman. (Postman desktop agent is requied for testing)
 
 ## Architecture Of the project
