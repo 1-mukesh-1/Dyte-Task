@@ -1,11 +1,9 @@
 const express = require('express');
-const uuid = require('uuid');
 const router = express.Router();
-const webhooks = require('../../Webhooks');
 const axios = require('axios');
 var request = require('request');
+const bodyParser = require("body-parser");
 
-const idFilter = req => webhook => webhook.id === parseInt(req.params.id);
 
 // Gets All Webhooks
 router.get('/', (req, res) => {
@@ -23,7 +21,6 @@ router.get('/', (req, res) => {
         } else {
           // data is already parsed as JSON:
           x=JSON.parse(data);
-          console.log(x);
           res.send(x);
         }
     });
@@ -45,7 +42,6 @@ router.get('/:id', (req, res) => {
         } else {
           // data is already parsed as JSON:
           x=JSON.parse(data);
-          console.log(x);
           res.send(x);
         }
     });
@@ -53,28 +49,26 @@ router.get('/:id', (req, res) => {
 
 // Create Webhook
 router.post('/', (req, res) => {
-    console.log(req.params);
     var temp =new Object();
-    temp.targetUrl=req.params.targetUrl;
-    console.log(temp);
+    temp.targetUrl=req.body.targetUrl;
     axios.post('http://localhost:3000/webhooks', temp)
     .then(resp => {
-        res.send(JSON.parse(resp));  
+        var x=JSON.parse(resp.data);
+        res.send(x);
     })
     .catch(error => {
         res.json({"status" : "error"})
     })
-    // res.redirect('/');
 });
 
 // Update Webhook
 router.put('/:id', (req, res) => {
     var temp =new Object();
-    temp.targetUrl=req.params.targetUrl;
-    console.log(temp);
+    temp.targetUrl=req.body.targetUrl;
     axios.put('http://localhost:3000/webhooks/'+req.params.id, temp)
     .then(resp => {
-        res.send(JSON.parse(resp));
+        var x=JSON.parse(resp.data);
+        res.send(x);
     })
     .catch(error => {
         res.json({"status" : "error"})
