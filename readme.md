@@ -22,6 +22,9 @@ Step - 4 : Use postman api and send different types of requests to backend and i
 ## Architecture Of the project
 ![Screenshot](main.PNG)
 
+## Trigger when /ip is accessed
+![Screenshot](trigger.PNG)
+
 ## Requests & Routes
 
     /all rows
