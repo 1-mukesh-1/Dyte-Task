@@ -1,8 +1,5 @@
 ﻿# Welcome
 
-This project is a task given by dyte.
-
-
 # Components of the project
 1. Backend
 This consists of all the source code required to communicate with the microservice. This component is developed in ExpressJS. This Consists of basic CRUD routes which will trigger the microservice.
